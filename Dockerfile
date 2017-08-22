@@ -17,6 +17,7 @@ RUN apt-get update \
     && apt-get autoremove -y
 
 RUN    echo "display_errors = off"      >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "log_errors = on"           >> /usr/local/etc/php/conf.d/php.ini \
     && echo "post_max_size = 64M"       >> /usr/local/etc/php/conf.d/php.ini \
     && echo "upload_max_filesize = 16M" >> /usr/local/etc/php/conf.d/php.ini
 
