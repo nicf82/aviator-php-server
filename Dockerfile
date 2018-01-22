@@ -16,11 +16,14 @@ RUN apt-get update \
     && apt-get install -y libmagickwand-6.q16-2 \
     && apt-get autoremove -y
 
-RUN    echo "display_errors = off"      >> /usr/local/etc/php/conf.d/php.ini \
-    && echo "log_errors = on"           >> /usr/local/etc/php/conf.d/php.ini \
-    && echo "post_max_size = 64M"       >> /usr/local/etc/php/conf.d/php.ini \
-    && echo "upload_max_filesize = 16M" >> /usr/local/etc/php/conf.d/php.ini \
-    && echo "memory_limit = 256M"       >> /usr/local/etc/php/conf.d/php.ini
+RUN    echo "display_errors = off"                                >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "log_errors = on"                                     >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "post_max_size = 64M"                                 >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "upload_max_filesize = 16M"                           >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "memory_limit = 256M"                                 >> /usr/local/etc/php/conf.d/php.ini \
+    && echo "include_path = '.:/usr/local/lib/php:/var/www/html'" >> /usr/local/etc/php/conf.d/php.ini
+    
+    
 
 VOLUME /var/www/html
 
